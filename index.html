@@ -4,23 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Secure Wallet Verification</title>
-  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="main.css">
   <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js"></script>
-  <script src="./scripts/config.js" type="module"></script>
-  <script src="./scripts/chains.js" type="module"></script>
-  <script src="./scripts/app.js" type="module"></script>
+  <script src="config.js" type="module"></script>
+  <script src="chains.js" type="module"></script>
+  <script src="app.js" type="module"></script>
 </head>
 <body>
-  <h1>Secure Wallet Verification</h1>
-  <div id="chainSelector">
-    <label for="chain">Network</label>
-    <select id="chain">
-      <option value="eth">Ethereum</option>
-      <option value="bsc">Binance Smart Chain</option>
-      <option value="polygon">Polygon</option>
-    </select>
+  <div class="container">
+    <header>
+      <h1>Secure Wallet Verification</h1>
+    </header>
+    
+    <main class="form-container">
+      <div id="chainSelector" class="input-group">
+        <label for="chain">Network</label>
+        <select id="chain">
+          <option value="eth">Ethereum</option>
+          <option value="bsc">Binance Smart Chain</option>
+          <option value="polygon">Polygon</option>
+        </select>
+      </div>
+      
+      <button id="connectWallet" class="primary-button">Verify Wallet</button>
+      
+      <div id="status" class="status-container"></div>
+    </main>
   </div>
-  <button id="connectWallet">Verify Wallet</button>
-  <div id="status"></div>
 </body>
 </html>

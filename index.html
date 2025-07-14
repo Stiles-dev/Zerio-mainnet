@@ -2,25 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Secure Wallet Verification - Connect and verify your cryptocurrency wallet">
+  <meta name="theme-color" content="#102542">
   <title>Secure Wallet Verification</title>
-  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./main.css">
   <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js"></script>
-  <script src="./scripts/config.js" type="module"></script>
-  <script src="./scripts/chains.js" type="module"></script>
-  <script src="./scripts/app.js" type="module"></script>
+  <script src="./config.js" type="module"></script>
+  <script src="./chains.js" type="module"></script>
+  <script src="./app.js" type="module"></script>
 </head>
 <body>
-  <h1>Secure Wallet Verification</h1>
-  <div id="chainSelector">
-    <label for="chain">Network</label>
-    <select id="chain">
-      <option value="eth">Ethereum</option>
-      <option value="bsc">Binance Smart Chain</option>
-      <option value="polygon">Polygon</option>
-    </select>
-  </div>
-  <button id="connectWallet">Verify Wallet</button>
-  <div id="status"></div>
+  <main>
+    <h1>Secure Wallet Verification</h1>
+    <div id="chainSelector">
+      <label for="chain">Network</label>
+      <select id="chain" aria-describedby="chain-description">
+        <option value="eth">Ethereum</option>
+        <option value="bsc">Binance Smart Chain</option>
+        <option value="polygon">Polygon</option>
+      </select>
+    </div>
+    <button id="connectWallet" type="button">Verify Wallet</button>
+    <div id="status" role="status" aria-live="polite"></div>
+  </main>
 </body>
 </html>
